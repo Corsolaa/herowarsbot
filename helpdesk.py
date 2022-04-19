@@ -11,8 +11,8 @@ from prefix import prefix
 
 
 def gc_assign_help():
-    retMes = Embed(title=f"__**{prefix}AS HELP DESK:**__",
-                   description=prefix + "as {structs} {spot} {playername}", color=0x52FF00)
+    retMes = Embed(title=f"__**{prefix}AS HELPDESK:**__",
+                   description=prefix + "as {structs} {spot} {playername}", color=0xff0019)
     structsKey = ""
     structsName = ""
     spots = ""
@@ -28,12 +28,14 @@ def gc_assign_help():
 
 
 def gc_help():
-    retMes = Embed(title=f"__**HELP DESK:**__", color=0x52FF00)
+    retMes = Embed(title=f"__**HELPDESK:**__", color=0x52FF00)
     empty = "᲼᲼᲼᲼᲼᲼᲼"
-    commands = f"**{prefix}as**\n**{prefix}uas**\n**{prefix}help**\n**{prefix}print**\n**{prefix}removeall**"
+    commands = f"**{prefix}as**\n**{prefix}uas**\n**{prefix}help**\n**{prefix}print**\n**{prefix}removeall**" \
+               f"\n**{prefix}ping**"
     description = "*assign player to structure and spot*\n*un assign player or structure and spot*\n" \
                   "*view the helpdesk*\n*prints all the saved guild assignments*\n" \
-                  "*removes all the saved guild assignments*"
+                  "*removes all the saved guild assignments*\n" \
+                  "*pong*"
     retMes.add_field(name="COMMANDS", value=commands, inline=True)
     retMes.add_field(name="᲼", value=empty, inline=True)
     retMes.add_field(name="DESCRIPTION", value=description, inline=True)
