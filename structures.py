@@ -1,3 +1,10 @@
+# *     |\__/,|   (`\
+# *   _.|o o  |_   ) )
+# * -(((---(((--------
+# *
+# * Made by : Corsolaa
+# * Date    : 19/04/2022
+# * * * * * * * * * * * *
 structures = {"ba": ["Barracks", 3, {}],
               "li": ["Lighthouse", 3, {}],
               "ma": ["Mage Academy", 3, {}],

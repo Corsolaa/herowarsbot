@@ -1,3 +1,10 @@
+# *     |\__/,|   (`\
+# *   _.|o o  |_   ) )
+# * -(((---(((--------
+# *
+# * Made by : Corsolaa
+# * Date    : 19/04/2022
+# * * * * * * * * * * * *
 from MongoDBSetting import collection
 from structures import structures
 
