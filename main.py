@@ -6,12 +6,14 @@
 # * Date    : 19/04/2022
 # * * * * * * * * * * * *
 import discord
+from unAssign import gc_unassign
 from discord.ext import commands
 from helpdesk import gc_help
 from assign import gc_assign
 from prefix import prefix
-from removeall import gc_removeall
+from removeall import gc_removeall, gc_removealls
 from print import gc_print
+from emojiregister import gc_emojiregister
 
 token = open("text_files/token.txt", "r").read()
 bot = commands.Bot(command_prefix=prefix)
@@ -23,12 +25,23 @@ async def ping(ctx):
     await ctx.send("pong")
 
 
+@bot.command()
+async def uas(ctx):
+    retMes = gc_unassign()
+    if isinstance(retMes, discord.embeds.Embed):
+        await ctx.send(embed=retMes)
+    else:
+        await ctx.send(retMes)
+
+
 @bot.command(name="print")
 async def _print(ctx):
     retMes = gc_print()
     if isinstance(retMes, list):
+        channel = bot.get_channel(964572292417986680)
+        await channel.purge()
         for x in retMes:
-            await ctx.send(x)
+            await channel.send(x)
     else:
         await ctx.send(retMes)
 
@@ -55,6 +68,11 @@ async def removeall(ctx):
 
 
 @bot.command()
+async def removealls(ctx):
+    await ctx.send(gc_removealls())
+
+
+@bot.command()
 async def purge(ctx):
     await ctx.channel.purge()
 
@@ -65,9 +83,20 @@ async def on_ready():
 
 
 @bot.event
+async def on_reaction_add(reaction, user):
+    if not gc_emojiregister(reaction, user):
+        await reaction.remove(user)
+
+
+# channel = reaction.message.channel
+# await channel.send(reaction.emoji)
+
+
+@bot.event
 async def on_message(message):
     print(f"{message.channel}: {message.author}: {message.author.name}: {message.content}")
     message.content = message.content.lower()
     await bot.process_commands(message)
+
 
 bot.run(token)

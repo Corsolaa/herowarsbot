@@ -7,11 +7,11 @@
 # * * * * * * * * * * * *
 from MongoDBSetting import collection
 from structures import structures
-from helpdesk import gc_assign_help
+from helpdesk import gc_allassign_help
 
 
 def gc_assign(build, spot, user):
-    retMes = gc_assign_help()
+    retMes = gc_allassign_help("as", 0xff0019)
     if build == "help":
         return retMes
     if build in structures:

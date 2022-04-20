@@ -10,9 +10,9 @@ from structures import structures
 from prefix import prefix
 
 
-def gc_assign_help():
-    retMes = Embed(title=f"__**{prefix}AS HELPDESK:**__",
-                   description=prefix + "as {structs} {spot} {playername}", color=0xff0019)
+def gc_allassign_help(title, color):
+    retMes = Embed(title=f"__**{prefix}{title.upper()} HELPDESK:**__",
+                   description=prefix + title + " {structs} {spot} {playername}", color=color)
     structsKey = ""
     structsName = ""
     spots = ""
@@ -23,7 +23,6 @@ def gc_assign_help():
     retMes.add_field(name="STRUCTS", value=structsKey, inline=True)
     retMes.add_field(name="᲼", value=structsName, inline=True)
     retMes.add_field(name="SPOTS", value=spots, inline=True)
-    print(type(retMes))
     return retMes
 
 
