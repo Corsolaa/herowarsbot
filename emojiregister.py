@@ -1,12 +1,9 @@
 from MongoDBSetting import collectionEm
-from structures import structures
+from checkinstructures import checkStructures
 
 
 def gc_emojiregister(reaction, user):
-    no = []
-    for j in structures:
-        no.append(f"**--{structures[j][0].lower()}--**")
-    no.append("---------------")
+    no = checkStructures()
     if reaction.message.content not in no:
         ID = collectionEm.count_documents({})
         if reaction.emoji == "✅":

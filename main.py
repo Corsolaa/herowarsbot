@@ -88,10 +88,6 @@ async def on_reaction_add(reaction, user):
         await reaction.remove(user)
 
 
-# channel = reaction.message.channel
-# await channel.send(reaction.emoji)
-
-
 @bot.event
 async def on_message(message):
     print(f"{message.channel}: {message.author}: {message.author.name}: {message.content}")
