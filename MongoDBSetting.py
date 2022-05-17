@@ -6,7 +6,7 @@
 # * Date    : 19/04/2022
 # * * * * * * * * * * * *
 from pymongo import MongoClient
-cluster = MongoClient("mongodb+srv://Corsolaa:3buMOjOSXg22xiWX@cluster0.zb9ue.mongodb.net/test")
+cluster = MongoClient(open("text_files/mongoDBToken.txt", "r").read())
 db = cluster["crosswar"]
 collection = db["crosswarcol"]
 collectionEm = db["crosswaremoji"]

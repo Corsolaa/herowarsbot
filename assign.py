@@ -20,12 +20,12 @@ def gc_assign(build, spot, user):
         if maxSpot >= spot > 0:
             if collection.count_documents({"_id": str(placeName) + str(spot)}) == 0:
                 if collection.count_documents({"playerID": str(user)}) < 2:
-                    retMes = "Player has successfully been set"
                     post = {"_id": str(placeName) + str(spot),
                             "playerID": str(user),
                             "place": str(build),
                             "spot": str(spot)}
                     collection.insert_one(post)
+                    retMes = "Player has successfully been set"
                     return retMes
                 else:
                     retMes = "Player ID already set 2 times!!!"

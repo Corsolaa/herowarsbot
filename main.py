@@ -18,6 +18,18 @@ from emojiregister import gc_emojiregister
 token = open("text_files/token.txt", "r").read()
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
+auto = False
+
+
+@bot.command()
+async def autoprint(ctx):
+    global auto
+    if auto is True:
+        auto = False
+        await ctx.send("autoprint false")
+    elif auto is False:
+        auto = True
+        await ctx.send("autoprint true")
 
 
 @bot.command()
@@ -26,12 +38,14 @@ async def ping(ctx):
 
 
 @bot.command()
-async def uas(ctx):
-    retMes = gc_unassign()
+async def uas(ctx, build=None, spot=None):
+    retMes = gc_unassign(build, spot)
     if isinstance(retMes, discord.embeds.Embed):
         await ctx.send(embed=retMes)
     else:
         await ctx.send(retMes)
+        if auto is True:
+            await _print(ctx)
 
 
 @bot.command(name="print")
@@ -55,6 +69,8 @@ async def _as(ctx, build=None, spot: int = 1, user=None):
         await ctx.send(embed=retMes)
     else:
         await ctx.send(retMes)
+        if auto is True:
+            await _print(ctx)
 
 
 @bot.command(name="help")
