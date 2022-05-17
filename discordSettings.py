@@ -3,7 +3,7 @@
 # * -(((---(((--------
 # *
 # * Made by : Corsolaa
-# * Date    : 19/04/2022
+# * Date    : 17/05/2022
 # * * * * * * * * * * * *
 import discord
 sendChannel = open("./text_files/sendChannel.txt", "r").read()

@@ -3,7 +3,7 @@
 # * -(((---(((--------
 # *
 # * Made by : Corsolaa
-# * Date    : 19/04/2022
+# * Date    : 17/05/2022
 # * * * * * * * * * * * *
 from MongoDBSetting import collection
 from structures import structures
@@ -11,7 +11,6 @@ from structures import structures
 
 def gc_print():
     retMes = "No assignments set..."
-    print(collection.count_documents({}))
     if collection.count_documents({}) > 0:
         for i in collection.find({}, {"_id": 0, "playerID": 1, "place": 1, "spot": 1}):
             playerID = str(i["playerID"])

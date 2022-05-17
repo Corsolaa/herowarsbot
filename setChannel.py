@@ -3,7 +3,7 @@
 # * -(((---(((--------
 # *
 # * Made by : Corsolaa
-# * Date    : 19/04/2022
+# * Date    : 17/05/2022
 # * * * * * * * * * * * *
 # import os
 # checkSend = os.stat("./text files/sendChannel.txt").st_size

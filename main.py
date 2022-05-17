@@ -3,7 +3,7 @@
 # * -(((---(((--------
 # *
 # * Made by : Corsolaa
-# * Date    : 19/04/2022
+# * Date    : 17/05/2022
 # * * * * * * * * * * * *
 import discord
 from unAssign import gc_unassign
@@ -79,12 +79,12 @@ async def _help(ctx):
 
 
 @bot.command()
-async def removeall(ctx):
+async def rem(ctx):
     await ctx.send(gc_removeall())
 
 
 @bot.command()
-async def removealls(ctx):
+async def rems(ctx):
     await ctx.send(gc_removealls())
 
 
