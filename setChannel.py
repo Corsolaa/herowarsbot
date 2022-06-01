@@ -5,18 +5,18 @@
 # * Made by : Corsolaa
 # * Date    : 17/05/2022
 # * * * * * * * * * * * *
-# import os
-# checkSend = os.stat("./text files/sendChannel.txt").st_size
-# checkLand = os.stat("./text files/landChannel.txt").st_size
-#
-#
-# def set_send(ctx):
-#     retMes = "Send channel already set..."
-#     if checkSend == 0:
-#         file = open("./text files/sendChannel.txt", "a")
-#         file.write(str(ctx.channel.id))
-#         retMes = "You can now set assignments here..."
-#     return retMes
+import os
+checkSend = os.stat("./text_files/sendChannel.txt").st_size
+checkLand = os.stat("./text_files/landChannel.txt").st_size
+
+
+def set_send(ctx):
+    retMes = "Send channel already set..."
+    if checkSend == 0:
+        file = open("./text files/sendChannel.txt", "a")
+        file.write(str(ctx.channel.id))
+        retMes = "You can now set assignments here..."
+    return retMes
 
 
 # def set_land(ctx):

@@ -12,6 +12,7 @@ from helpdesk import gc_allassign_help
 
 def gc_assign(build, spot, user):
     retMes = gc_allassign_help("as", 0xff0019)
+    build = build.lower()
     if build == "help":
         return retMes
     if build in structures:

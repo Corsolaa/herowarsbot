@@ -6,6 +6,8 @@
 # * Date    : 17/05/2022
 # * * * * * * * * * * * *
 import discord
+
+import setChannel
 from unAssign import gc_unassign
 from discord.ext import commands
 from helpdesk import gc_help
@@ -16,10 +18,13 @@ from print import gc_print
 from emojiregister import gc_emojiregister
 
 token = open("text_files/token.txt", "r").read()
-bot = commands.Bot(command_prefix=prefix)
+bot = commands.Bot(command_prefix=prefix, case_insensitive=True)
 bot.remove_command("help")
 auto = False
 
+@bot.command()
+async def setch(ctx):
+    await ctx.send(setChannel.set_send(ctx))
 
 @bot.command()
 async def autoprint(ctx):
@@ -107,8 +112,13 @@ async def on_reaction_add(reaction, user):
 @bot.event
 async def on_message(message):
     print(f"{message.channel}: {message.author}: {message.author.name}: {message.content}")
-    message.content = message.content.lower()
-    await bot.process_commands(message)
+    if message.content[0:prefix.length] == prefix:
+        if message.author.name != "herowarsbot":
+            if setChannel.checkSend > 0 and setChannel.checkLand > 0:
+                await bot.process_commands(message)
+            else:
+                await message.channel.send("Please set ")
+
 
 
 bot.run(token)
